@@ -9,6 +9,7 @@ using FTOptix.Retentivity;
 using FTOptix.CoreBase;
 using FTOptix.Core;
 using FTOptix.NetLogic;
+using FTOptix.WebUI;
 #endregion
 
 public class SendDataPLC : BaseNetLogic
@@ -33,8 +34,11 @@ public class SendDataPLC : BaseNetLogic
 
     public void SendData()
     {
-        LogicObject.GetVariable("Username").Value = Session.User.BrowseName;
-        LogicObject.GetVariable("Group1").Value = Session.GetVariable("Groups/Group1").Value;
-        LogicObject.GetVariable("Group2").Value = Session.GetVariable("Groups/Group2").Value;
+        if (Session.GetVariable("IsNative").Value == true)
+        {
+            LogicObject.GetVariable("Username").Value = Session.User.BrowseName;
+            LogicObject.GetVariable("Group1").Value = Session.GetVariable("Groups/Group1").Value;
+            LogicObject.GetVariable("Group2").Value = Session.GetVariable("Groups/Group2").Value;
+        }        
     }
 }
