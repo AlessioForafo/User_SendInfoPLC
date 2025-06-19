@@ -1,0 +1,13 @@
+Name: Model
+Type: ModelCategoryFolder
+Children:
+- Name: VarPLC_User
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: VarPLC_Group1
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: VarPLC_Group2
+  Type: BaseDataVariableType
+  DataType: Boolean
